@@ -26,6 +26,11 @@ def main():
 	shift = int(num.get())
 
 	for char in plain:
+		
+		if char not in alphabet:
+			final += char
+			continue
+
 		loca = alphabet.find(char)
 		newVal = loca + shift
 
