@@ -20,6 +20,8 @@ number = Entry(root, textvariable=num)
 #	print(str(a))
 
 def encrypt():
+	global alphabet
+
 	final = "Encrypted: "
 
 	plain = str(text.get())
@@ -29,6 +31,11 @@ def encrypt():
 	number.delete(0, 'end')
 
 	for char in plain:
+
+		if char.isupper() == True:
+			alphabet = alphabet.upper()
+		else:
+			alphabet = alphabet.lower()
 		
 		if char not in alphabet:
 			final += char
@@ -50,6 +57,8 @@ def encrypt():
 	enc.pack()
 
 def decrypt():
+	global alphabet
+
 	final = "Decrypted: "
 
 	plain = str(text.get())
@@ -59,6 +68,11 @@ def decrypt():
 	number.delete(0, 'end')
 
 	for char in plain:
+		
+		if char.isupper() == True:
+			alphabet = alphabet.upper()
+		else:
+			alphabet = alphabet.lower()
 		
 		if char not in alphabet:
 			final += char
