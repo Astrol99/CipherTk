@@ -19,11 +19,14 @@ number = Entry(root, textvariable=num)
 #	a = new + 5
 #	print(str(a))
 
-def main():
+def encrypt():
 	final = "Encrypted: "
 
 	plain = str(text.get())
 	shift = int(num.get())
+
+	text.delete(0, 'end')
+	number.delete(0, 'end')
 
 	for char in plain:
 		
@@ -43,18 +46,53 @@ def main():
 
 		final += alphabet[newVal]
 
-	setUp = Label(root, text=final,fg="blue")
-	setUp.pack()
+	enc = Label(root, text=final,fg="blue")
+	enc.pack()
 
-press = Button(root, text="Enter", command=main, fg="blue")
+def decrypt():
+	final = "Decrypted: "
+
+	plain = str(text.get())
+	shift = int(num.get())
+
+	text.delete(0, 'end')
+	number.delete(0, 'end')
+
+	for char in plain:
+		
+		if char not in alphabet:
+			final += char
+			continue
+
+		loca = alphabet.find(char)
+		newVal = loca - shift
+
+		#if newVal <= len(alphabet):
+		#	while True:
+		#		newVal += 26
+
+		#		if newVal <= len(alphabet) and newVal >= 0:
+		#			break
+
+		final += alphabet[newVal]
+
+	dec = Label(root, text=final,fg="blue")
+	dec.pack()
+
+
+
+
+press = Button(root, text="Encrypt", command=encrypt, fg="blue")
+press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
 
 label1 = Label(root, text="Enter Text", fg="blue")
-label2 = Label(root, text="Enter shift(int)", fg="blue")
+label2 = Label(root, text="Enter shift(int) 1 - 25", fg="blue")
 
 label1.pack()
 text.pack()
 label2.pack()
 number.pack()
-press.pack()
+press.pack(side=LEFT)
+press2.pack(side=RIGHT)
 
 root.mainloop()
