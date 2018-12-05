@@ -19,7 +19,12 @@ number = Entry(root, textvariable=num)
 #	a = new + 5
 #	print(str(a))
 
+scrollbar1 = Scrollbar(root)
+listbox1 = Listbox(root)
+
 def encrypt():
+	global scrollbar1
+	global listbox1
 	global alphabet
 
 	final = "Encrypted: "
@@ -53,10 +58,13 @@ def encrypt():
 
 		final += alphabet[newVal]
 
-	enc = Label(root, text=final,fg="blue")
-	enc.pack()
+	#enc = Label(root, text=final,fg="blue")
+	#enc.pack()
+	listbox1.insert(END, final)
 
 def decrypt():
+	global listbox1
+	global scrollbar1
 	global alphabet
 
 	final = "Decrypted: "
@@ -90,22 +98,27 @@ def decrypt():
 
 		final += alphabet[newVal]
 
-	dec = Label(root, text=final,fg="blue")
-	dec.pack()
+	#dec = Label(root, text=final,fg="blue")
+	#dec.pack()
+	listbox1.insert(END, final)
+	
 
-
-
+listbox1.config(yscrollcommand=scrollbar1.set)
+scrollbar1.config(command=listbox1.yview)
 
 press = Button(root, text="Encrypt", command=encrypt, fg="blue")
 press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
 
 label1 = Label(root, text="Enter Text", fg="blue")
 label2 = Label(root, text="Enter shift(int) 1 - 25", fg="blue")
+label3 = Label(root, text="OUTPUT:", fg="red")
 
 label1.pack()
 text.pack()
 label2.pack()
 number.pack()
+label3.pack()
+listbox1.pack()
 press.pack(side=LEFT)
 press2.pack(side=RIGHT)
 
