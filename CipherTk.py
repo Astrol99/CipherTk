@@ -41,7 +41,7 @@ def encrypt():
 			alphabet = alphabet.upper()
 		else:
 			alphabet = alphabet.lower()
-		
+
 		if char not in alphabet:
 			final += char
 			continue
@@ -76,12 +76,12 @@ def decrypt():
 	number.delete(0, 'end')
 
 	for char in plain:
-		
+
 		if char.isupper() == True:
 			alphabet = alphabet.upper()
 		else:
 			alphabet = alphabet.lower()
-		
+
 		if char not in alphabet:
 			final += char
 			continue
@@ -89,19 +89,19 @@ def decrypt():
 		loca = alphabet.find(char)
 		newVal = loca - shift
 
-		#if newVal <= len(alphabet):
-		#	while True:
-		#		newVal += 26
+		if newVal < 0:
+			while True:
+				newVal += 26
 
-		#		if newVal <= len(alphabet) and newVal >= 0:
-		#			break
+				if newVal <= len(alphabet) and newVal >= 0:
+					break
 
 		final += alphabet[newVal]
 
 	#dec = Label(root, text=final,fg="blue")
 	#dec.pack()
 	listbox1.insert(END, final)
-	
+
 
 listbox1.config(yscrollcommand=scrollbar1.set)
 scrollbar1.config(command=listbox1.yview)
@@ -110,7 +110,7 @@ press = Button(root, text="Encrypt", command=encrypt, fg="blue")
 press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
 
 label1 = Label(root, text="Enter Text", fg="blue")
-label2 = Label(root, text="Enter shift(int) 1 - 25", fg="blue")
+label2 = Label(root, text="Enter shift(int)", fg="blue")
 label3 = Label(root, text="OUTPUT:", fg="red")
 
 label1.pack()
