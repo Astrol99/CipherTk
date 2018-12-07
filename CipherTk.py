@@ -4,7 +4,7 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 root = Tk()
 root.geometry("400x400")
-root.title("Cipher")
+root.title("Caesar Cipher")
 
 data = StringVar()
 text = Entry(root, textvariable=data)
@@ -106,12 +106,12 @@ def decrypt():
 listbox1.config(yscrollcommand=scrollbar1.set)
 scrollbar1.config(command=listbox1.yview)
 
-press = Button(root, text="Encrypt", command=encrypt, fg="blue")
-press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
+press = Button(root, text="Encrypt", command=encrypt, fg="blue", font="Helvetica")
+press2 = Button(root, text="Decrypt", command=decrypt, fg="blue", font="Helvetica")
 
-label1 = Label(root, text="Enter Text")
-label2 = Label(root, text="Enter shift(int)")
-label3 = Label(root, text="OUTPUT:", fg="red")
+label1 = Label(root, text="Enter Text", font="Helvetica")
+label2 = Label(root, text="Enter shift(int)", font="Helvetica")
+label3 = Label(root, text="OUTPUT:", fg="red", font="Helvetica")
 
 label1.pack()
 text.pack()
