@@ -109,8 +109,8 @@ scrollbar1.config(command=listbox1.yview)
 press = Button(root, text="Encrypt", command=encrypt, fg="blue")
 press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
 
-label1 = Label(root, text="Enter Text", fg="blue")
-label2 = Label(root, text="Enter shift(int)", fg="blue")
+label1 = Label(root, text="Enter Text")
+label2 = Label(root, text="Enter shift(int)")
 label3 = Label(root, text="OUTPUT:", fg="red")
 
 label1.pack()
