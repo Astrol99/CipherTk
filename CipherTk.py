@@ -106,13 +106,18 @@ def decrypt():
 listbox1.config(yscrollcommand=scrollbar1.set)
 scrollbar1.config(command=listbox1.yview)
 
-press = Button(root, text="Encrypt", command=encrypt, fg="blue", font="Helvetica")
-press2 = Button(root, text="Decrypt", command=decrypt, fg="blue", font="Helvetica")
+press = Button(root, text="Encrypt", command=encrypt, fg="blue")
+press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
 
-label1 = Label(root, text="Enter Text", font="Helvetica")
-label2 = Label(root, text="Enter shift(int)", font="Helvetica")
-label3 = Label(root, text="OUTPUT:", fg="red", font="Helvetica")
+mainLabel = Label(root, text="Caesar Cipher", font=("Helvetica", 18))
+subLabel = Label(root, text="A basic cipher system", font=("Helvetica", 8))
 
+label1 = Label(root, text="Enter Text", fg="green")
+label2 = Label(root, text="Enter shift(int)", fg="green")
+label3 = Label(root, text="OUTPUT:", fg="red")
+
+mainLabel.pack()
+subLabel.pack()
 label1.pack()
 text.pack()
 label2.pack()
