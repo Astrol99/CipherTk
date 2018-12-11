@@ -1,9 +1,10 @@
 from tkinter import *
+from tkinter import ttk
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 root = Tk()
-root.geometry("400x400")
+root.geometry("400x250")
 root.title("Caesar Cipher")
 
 data = StringVar()
@@ -106,25 +107,28 @@ def decrypt():
 listbox1.config(yscrollcommand=scrollbar1.set)
 scrollbar1.config(command=listbox1.yview)
 
-press = Button(root, text="Encrypt", command=encrypt, fg="blue")
-press2 = Button(root, text="Decrypt", command=decrypt, fg="blue")
+buttonStyle = ttk.Style()
+buttonStyle.configure("BW.TButton", foreground="Green", background="grey", font=("helvetica", 8))
+
+press = ttk.Button(root, style="BW.TButton",text="Encrypt", command=encrypt)
+press2 = ttk.Button(root, style="BW.TButton", text="Decrypt", command=decrypt)
 
 mainLabel = Label(root, text="Caesar Cipher", font=("Helvetica", 18))
 subLabel = Label(root, text="A basic cipher system", font=("Helvetica", 8))
 
-label1 = Label(root, text="Enter Text", fg="green")
-label2 = Label(root, text="Enter shift(int)", fg="green")
-label3 = Label(root, text="OUTPUT:", fg="red")
+label1 = Label(root, text="Enter Text")
+label2 = Label(root, text="Enter shift(int)")
+label3 = Label(root, text="OUTPUT:", fg="blue")
 
 mainLabel.pack()
 subLabel.pack()
-label1.pack()
-text.pack()
-label2.pack()
-number.pack()
-label3.pack()
-listbox1.pack()
-press.pack(side=LEFT)
-press2.pack(side=RIGHT)
+label1.place(x=40, y=50)
+text.place(x=10, y=72)
+label2.place(x=30,y=91)
+number.place(x=10, y=112)
+label3.place(x=300, y=50)
+listbox1.place(x=265, y=75)
+press.place(x=10, y=200)
+press2.place(x=75, y=200)
 
 root.mainloop()
