@@ -4,8 +4,10 @@ from tkinter import ttk
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 root = Tk()
-root.geometry("400x250")
+root.geometry("450x250")
 root.title("Caesar Cipher")
+
+root.resizable(False, False)
 
 data = StringVar()
 text = Entry(root, textvariable=data)
@@ -28,7 +30,7 @@ def encrypt():
 	global listbox1
 	global alphabet
 
-	final = "Encrypted: "
+	final = "Output: "
 
 	plain = str(text.get())
 	shift = int(num.get())
@@ -68,7 +70,7 @@ def decrypt():
 	global scrollbar1
 	global alphabet
 
-	final = "Decrypted: "
+	final = "Output: "
 
 	plain = str(text.get())
 	shift = int(num.get())
@@ -124,8 +126,8 @@ mainLabel.pack()
 subLabel.pack()
 label1.place(x=40, y=50)
 text.place(x=10, y=72)
-label2.place(x=30,y=91)
-number.place(x=10, y=112)
+label2.place(x=30,y=99)
+number.place(x=10, y=120)
 label3.place(x=300, y=50)
 listbox1.place(x=265, y=75)
 press.place(x=10, y=200)

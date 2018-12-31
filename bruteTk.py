@@ -3,7 +3,9 @@ from tkinter import ttk
 
 root = Tk()
 root.title("BruteTk")
-root.geometry("400x200")
+root.geometry("450x250")
+
+root.resizable(False, False)
 
 h1Label = Label(root, text="Caesar Brute", font=("helvetica", 18))
 
@@ -67,8 +69,7 @@ scrollbar1.config(command=listbox1.yview)
 h1Label.pack()
 helpLabel.place(x=10,y=75)
 inputUser.place(x=10, y=100)
-button1.place(x=30, y=125)
+button1.place(x=30, y=130)
 listbox1.place(x=250, y=30)
-scrollbar1.place(x=235,y=80)
 
 root.mainloop()
